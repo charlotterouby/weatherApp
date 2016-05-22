@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+	 	<title>Weather App</title>
+
+	 	<!-- Stylesheets -->
+	 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link href="assets/css/owfont-master/css/owfont-regular.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	</head>
+	
+	<body ng-app="WeatherApp">
+	<div ng-controller="MainController">
+			<div class="jumbotron">
+				<h1>Weather App <br/><small>L'appli météo de la Provence</small></h1>
+			</div>
+			<div class="container">
+				<div class="row">
+					<form class="form-inline col-xs-12 col-md-12">
+						<fieldset>
+							<legend>Filtres</legend>
+							<div class="input-group">
+								<label class="input-group-addon">Recherche par ville</label>
+								<input type="text" class="form-control" ng-model="searchName">
+							</div>
+							<div class="input-group">
+								<label class="input-group-addon">Recherche par condition météo</label>
+								<input type="text" class="form-control" ng-model="searchCondition">
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="row">	
+					<article class="col-xs-12 col-md-4" ng-repeat="weather in weathers | filter: {'name': searchName, 'condition': searchCondition}">
+						<img src="http://openweathermap.org/img/w/{{weather.icon}}.png" alt="weather icon" class="icon-weather"/>
+						<!-- <i class="owf owf-{{weather.idWeather}} owf-5x icon-weather"></i> -->
+
+						<h2 ng-bind="weather.name"></h2>
+						<p>Condition : <span ng-bind="weather.condition"></span></p>
+						<p>Température : <span ng-bind="weather.temp"></span>°C</p>
+					</article>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Javascript -->
+		<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="assets/js/core/app.js"></script>
+		<script type="text/javascript" src="assets/js/controllers/home-controllers.js"></script>
+	</body>
+</html>

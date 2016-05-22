@@ -1,0 +1,82 @@
+/*--------------------
+	LAYOUT
+--------------------*/
+body{
+	background : url(../img/fleurs.jpeg) center no-repeat fixed;
+	background-size: cover;
+}
+
+.jumbotron {
+	background-color: rgba(255,255,255, 0.75);
+	text-align: center;
+}
+
+form, article {
+	background-color: rgba(255,255,255, 0.75);
+	border-radius: 5px;
+	margin: 7.5px auto;
+}
+
+form, form div {
+	padding: 2vw;
+}
+
+form{
+	background-color: rgba(151, 218, 221, 0.75);
+}
+
+.input-group-addon{
+	background-color: #01696D ;
+	color: #FFFFFF;
+	border-color: #3DAAAF;
+}
+
+.form-control{
+	border-color: #3DAAAF;
+}
+
+/*--------------------
+ 	TYPOGRAPHY
+--------------------*/
+.jumbotron h1, h2 {
+	color: #FF7E10;
+}
+
+h1 small {
+	color:#B55400;
+}
+
+legend {
+	color: #FFFFFF;
+	font-weight: 500;
+	font-size: 30px;
+}
+
+/*--------------------
+	IMAGES
+--------------------*/
+.icon-weather{
+	float: right;
+	width: 25%;
+	color: #01696D;
+}
+
+/*--------------------
+ 	MEDIA QUERIES
+ --------------------*/
+@media screen and (min-width: 481px){
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+	article{
+		flex-basis: 32%;
+		flex-grow: 1;
+		margin: 0.33vw;
+	}
+
+	form div {
+		padding:0;
+	}
+}
