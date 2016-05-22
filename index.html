@@ -32,15 +32,15 @@
 					</form>
 				</div>
 				<div class="row">	
-					<article class="col-xs-12 col-md-4" ng-repeat="weather in weathers | filter: {'name': searchName, 'condition': searchCondition}">
+					<article class="col-xs-12 col-md-4" ng-repeat="weather in weathers | orderBy : 'name' | filter: {'name': searchName, 'condition': searchCondition}">
 						<img src="http://openweathermap.org/img/w/{{weather.icon}}.png" alt="weather icon" class="icon-weather"/>
-						<!-- <i class="owf owf-{{weather.idWeather}} owf-5x icon-weather"></i> -->
 
 						<h2 ng-bind="weather.name"></h2>
 						<p>Condition : <span ng-bind="weather.condition"></span></p>
 						<p>Température : <span ng-bind="weather.temp"></span>°C</p>
 					</article>
 				</div>
+				<button type="button" ng-click="searchCity()" class="btn btn-default btn-lg">Recherche</button>
 			</div>
 		</div>
 
@@ -48,6 +48,8 @@
 		<!-- Javascript -->
 		<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
 		<script type="text/javascript" src="assets/js/core/app.js"></script>
+		<script type="text/javascript" src="assets/js/core/services/request-api.js"></script>
+		<script type="text/javascript" src="assets/js/core/factories/weather-infos.js"></script>
 		<script type="text/javascript" src="assets/js/controllers/home-controllers.js"></script>
 	</body>
 </html>
